@@ -1,6 +1,7 @@
 package com.example.application.views;
 
 import com.example.application.views.about.AboutView;
+import com.example.application.views.crud.CrudView;
 import com.example.application.views.helloworld.HelloWorldView;
 import com.example.application.views.personform.PersonFormView;
 import com.github.appreciated.app.layout.addons.notification.DefaultNotificationHolder;
@@ -48,7 +49,7 @@ public class MainLayout extends AppLayoutRouterLayout<LeftLayouts.LeftResponsive
                                 new LeftClickableItem("Clickable Entry", VaadinIcon.COG.create(), clickEvent -> Notification.show("onClick ..."))
                         )
                         .add(new LeftNavigationItem("Home", VaadinIcon.HOME.create(), PersonFormView.class),
-                                new LeftNavigationItem("Grid", VaadinIcon.TABLE.create(), AboutView.class),
+                                new LeftNavigationItem("Grid", VaadinIcon.TABLE.create(), CrudView.class),
                                 LeftSubMenuBuilder.get("My Submenu", VaadinIcon.PLUS.create())
                                         .add(LeftSubMenuBuilder
                                                         .get("My Submenu", VaadinIcon.PLUS.create())
@@ -56,7 +57,7 @@ public class MainLayout extends AppLayoutRouterLayout<LeftLayouts.LeftResponsive
                                                                 new LeftNavigationItem("Contact", VaadinIcon.CONNECT.create(), HelloWorldView.class),
                                                                 new LeftNavigationItem("More", VaadinIcon.COG.create(), PersonFormView.class))
                                                         .build(),
-                                                new LeftNavigationItem("Contact1", VaadinIcon.CONNECT.create(), AboutView.class),
+                                                new LeftNavigationItem("Contact1", VaadinIcon.CONNECT.create(), CrudView.class),
                                                 new LeftNavigationItem("More1", VaadinIcon.COG.create(), AboutView.class))
                                         .build(),
                                 menuEntry)

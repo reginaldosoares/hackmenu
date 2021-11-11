@@ -2,8 +2,8 @@ package com.example.application.security;
 
 import java.util.Optional;
 
-import com.example.application.data.entity.User;
-import com.example.application.data.service.UserRepository;
+import com.example.application.data.entity.UserLogin;
+import com.example.application.data.service.UserLoginRepository;
 import com.vaadin.flow.component.UI;
 import com.vaadin.flow.server.VaadinServletRequest;
 
@@ -19,7 +19,7 @@ import org.springframework.stereotype.Component;
 public class AuthenticatedUser {
 
     @Autowired
-    private UserRepository userRepository;
+    private UserLoginRepository userRepository;
 
     private Optional<Authentication> getAuthentication() {
         SecurityContext context = SecurityContextHolder.getContext();
@@ -27,7 +27,7 @@ public class AuthenticatedUser {
                 .filter(authentication -> !(authentication instanceof AnonymousAuthenticationToken));
     }
 
-    public Optional<User> get() {
+    public Optional<UserLogin> get() {
         return getAuthentication().map(authentication -> userRepository.findByUsername(authentication.getName()));
     }
 
